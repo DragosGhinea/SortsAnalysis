@@ -2,16 +2,16 @@
 This project wants to present comparations between implementations of various popular (and rather efficient) sorting algorithms. 
 
 The implemented sorting algorithms are:
- * **Radix Sort**
+ * **Radix Sort** O(n+k)
     * Base 10
     * Base 2^16
- * **Quick Sort**
+ * **Quick Sort** 	~O(nlog(n))
     * Simple (Middle Pivot)
     * Randomized
     * Median of Three
- * **Merge Sort**
- * **Heap Sort**
- * **Shell Sort**
+ * **Merge Sort** O(nlog(n))
+ * **Heap Sort** O(nlog(n))
+ * **Shell Sort** ~O(n^2)
 
 To which we add the **STL Sort** from the C++
 
@@ -22,7 +22,7 @@ The code can generate the relevant data in three ways:
 ```cpp
 generate_csv(long long nMin, long long nMax, long long nStep, long long maxim)
 ```
- 2. Generating to a file **data.csv** with a MAXIM that varies, being multipled by 10 each step.
+ 2. Generating to a file **data.csv** with a MAXIM that varies, being multiplied by 10 each step.
 ```cpp
 generate_csv2(long long maximMin, long long maximMax, long long n)
 ```
