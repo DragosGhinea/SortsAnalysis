@@ -51,7 +51,7 @@ But is it true all the time? Of course not.
 
 In this second graph we see that even though most of the hierarchy above is kept, **Radix Sort (Base 10)** is having a hard time keeping up. What was modified that caused the **2nd place** to fall down to the **6th place** in performance? Well, as you can see in the mentioned input, the second graph was generated based on input with higher numbers which affects the performance of all sorts, but has a greater impact on the sort discussed above.
 
-In this context, is it worth using base 10 instead of 2^16 seeing that it remains somehow constant in the second graph as efficiency? Most likely not. The only thing I have encountered is that base 2^16 doesn't handle well maximum values of 10^15 and above, no matter how small the amount of numbers.
+In this context, is it worth using base 10 instead of 2^16 seeing that the second one remains somehow constant in the second graph as efficiency? Most likely not. The only thing I have encountered is that base 2^16 doesn't handle well maximum values of 10^15 and above, no matter how small the amount of numbers.
 
 ## Shell Sort & Heap Sort Notice
 
