@@ -73,3 +73,5 @@ Once again from the graphs above we see that the maximum value of the generated 
 # Other observations
 
 In general, the randomized version of quick sort should get more efficient than the simple and three way versions, but for some reason in my implementations it didn't happen.
+
+All the tests were performed on **natural numbers**, the statistics that were obtained might be slighty different with a custom data set/custom comparation criteria, for example radix sort, as efficient as it is, would not work on anything that is not an integer.
