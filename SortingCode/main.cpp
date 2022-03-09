@@ -25,7 +25,7 @@ void generate_vector(vector<long long> &v, long long maxim){
 
 bool test_sort(vector<long long> initial, vector<long long>& afterSort, long long n){
     sort(initial.begin(), initial.end());
-    for(int i = 0; i < n; i++)
+    for(long long i = 0; i < n; i++)
         if(initial[i] != afterSort[i]) return false;
     return true;
 }
