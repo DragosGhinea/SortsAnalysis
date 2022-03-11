@@ -7,12 +7,6 @@
 using namespace std;
 using namespace std::chrono;
 
-void generate_vector2(vector<long long> &v, long long maxim){
-    for (auto i = v.begin() ; i != v.end() ; i++){
-        *i = rand()% maxim;
-    }
-}
-
 void generate_vector(vector<long long> &v, long long maxim){
     mt19937_64 gen(time(NULL));
 
@@ -23,10 +17,9 @@ void generate_vector(vector<long long> &v, long long maxim){
     }
 }
 
-bool test_sort(vector<long long> initial, vector<long long>& afterSort, long long n){
-    sort(initial.begin(), initial.end());
+bool test_sort(vector<long long> &initialSorted, vector<long long>& afterSort, long long n){
     for(long long i = 0; i < n; i++)
-        if(initial[i] != afterSort[i]) return false;
+        if(initialSorted[i] != afterSort[i]) return false;
     return true;
 }
 
@@ -63,7 +56,9 @@ void screen_print(){
         auto stop = high_resolution_clock::now();
 
         auto duration = duration_cast<microseconds>(stop - start);
-        cout<<"STL Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"STL Sort: "<<duration.count()<<" microseconds | test_sort="<<1<<endl;
+
+        vector<long long> testCopy = generatedCopy; //used for the test sort function so we don't generate the sorted vector each time
 
         //==================================================================================================================
 
@@ -76,7 +71,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Radix Sort (Base 10): "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Radix Sort (Base 10): "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         if(maxim>281474976710656){
                 cout<<"Radix Sort (Base 2^16): Detected MAXIM="<<maxim<<" that might cause the process to exceed the long long allocated space, aborted sort.\n";
@@ -90,7 +85,8 @@ void screen_print(){
             stop = high_resolution_clock::now();
 
             duration = duration_cast<microseconds>(stop - start);
-            cout<<"Radix Sort (Base 2^16): "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+            cout<<"Radix Sort (Base 2^16): "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
+
         }
 
         //==================================================================================================================
@@ -103,7 +99,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Shell Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Shell Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         //==================================================================================================================
 
@@ -115,7 +111,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Merge Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Merge Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         //==================================================================================================================
 
@@ -127,7 +123,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Heap Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Heap Sort: "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         //==================================================================================================================
 
@@ -139,7 +135,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Quick Sort (Three Way): "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Quick Sort (Three Way): "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         //==================================================================================================================
 
@@ -151,7 +147,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Quick Sort (Randomized): "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Quick Sort (Randomized): "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         //==================================================================================================================
 
@@ -163,7 +159,7 @@ void screen_print(){
         stop = high_resolution_clock::now();
 
         duration = duration_cast<microseconds>(stop - start);
-        cout<<"Quick Sort (Simple): "<<duration.count()<<" microseconds | test_sort="<<test_sort(randomGenerated, generatedCopy, N)<<endl;
+        cout<<"Quick Sort (Simple): "<<duration.count()<<" microseconds | test_sort="<<test_sort(testCopy, generatedCopy, N)<<endl;
 
         cout<<endl<<endl;
 
