@@ -11,7 +11,7 @@ The implemented sorting algorithms are:
     * Median of Three
  * **Merge Sort** O(nlog(n))
  * **Heap Sort** O(nlog(n))
- * **Shell Sort** ~O(n^2)
+ * **Shell Sort** ~O(nlog(n))
 
 To which we add the **STL Sort** from the C++
 
